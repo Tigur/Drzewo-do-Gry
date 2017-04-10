@@ -68,7 +68,7 @@ public:
     }
 
 
-    bool insert(type value, int position)
+    bool insert(type* value, int position)
     {
 
 

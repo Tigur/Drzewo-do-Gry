@@ -87,6 +87,9 @@
 		<Unit filename="/home/resolution/CLionProjects/Tree/Tree.h">
 			<Option target="Tree"/>
 		</Unit>
+		<Unit filename="/home/resolution/CLionProjects/Tree/TreeStructure.h">
+			<Option target="Tree"/>
+		</Unit>
 		<Unit filename="/home/resolution/CLionProjects/Tree/main.cpp">
 			<Option target="Tree"/>
 		</Unit>

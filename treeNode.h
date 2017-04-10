@@ -14,7 +14,7 @@ class treeNode
 {
 public:
 
-    List <Tree> sons;
+    List <type> sons;
     treeNode *father;
     type value;
     int num=0;

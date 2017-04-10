@@ -10,7 +10,7 @@ class cell
 {
 public:
 
-    type value;
+    type* value;
     int key;
     cell * next;
     cell * prev;
