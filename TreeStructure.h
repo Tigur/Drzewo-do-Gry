@@ -61,11 +61,12 @@ public:
     {
 
         TreeStructure<type> *newTree;
+        TreeStructure<type> *found;
 
 
-        if(size == 0||parentId==id)
+        if(parentId==id)
         {
-            sons.insert(new TreeStructure <type>, sons.size); // tworzymy komórkę listy ze wskaźnikiem
+            sons.insert(new TreeStructure <type>, sons.size); // tworzymy komórkę listy ze wskaźnikiem << ważna linijka
             // sons.pick(sons.size).value = new TreeStructure <type> ;
 
             newTree=sons.pick(sons.size).value;
@@ -85,10 +86,62 @@ public:
             return false;
         }
 
-        preorder(parentId,this)->create(parentId,value, newId);
-
+        if(found=preorder(parentId,this))
+        {
+            found->create(parentId, value, newId);
+            return true;
+        }
+        else
+        {
+            cerr<< "There is no such a place in this tree !" << endl;
+            return false;
+        }
 
     }
+
+
+    bool remove(int parentId)
+    {
+        TreeStructure <type> *rmThis;
+        if(parentId==id && size==0)
+        {
+
+            for(int i=1;i<=size;i++)
+            {
+                if (this->father->sons.pick(i).value == this)
+                {
+                    rmThis = this->father->sons.pick(i).value;
+                    this->father->sons.del(i);
+                }
+            }
+
+            delete rmThis;
+
+            return true;
+        }
+
+        if(size<parentId)
+        {
+            cerr<< "There is no such a place in this tree !" << endl;
+            return false;
+        }
+
+       if( rmThis=preorder(parentId,this))
+       {
+           rmThis->remove(parentId);
+           return true;
+       }
+        else
+       {
+           cerr<< "There is no such a place in this tree !" << endl;
+           return false;
+       }
+
+    }
+
+
+
+
 
     /*TreeStructure <type>* find (int parentNum)
     {
