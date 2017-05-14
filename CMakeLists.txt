@@ -3,5 +3,5 @@ project(Tree)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp TreeStructure.h treeNode.h Tree.h)
+set(SOURCE_FILES main.cpp TreeNode.h treeNode.h Tree.h)
 add_executable(Tree ${SOURCE_FILES})

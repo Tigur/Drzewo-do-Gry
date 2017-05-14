@@ -11,12 +11,12 @@ using namespace std;
 
 
 template <class type>
-class TreeStructure
+class TreeNode
 {
     //treeNode <type>  root; // zmiana wskaźnika na komórkę
 
-    List <TreeStructure> sons;
-    TreeStructure *father;
+    List <TreeNode> sons;
+    TreeNode *father;
     type value;
     int id=0;
 
@@ -35,22 +35,23 @@ class TreeStructure
             return false;
     }
 
-    TreeStructure <type>* preorder (int parentNum,TreeStructure <type> *tree)
+    TreeNode <type>* preorder (int parentNum,TreeNode <type> *tree)
     {
-        TreeStructure <type> *found=0;
-        TreeStructure <type> *currentNode=0;
+        TreeNode <type> *found=0;
+        TreeNode <type> *currentNode=this;
         int i= 0; tree->sons.size;
 
-        if(currentNode->id!=parentNum)
+        if(currentNode->id=parentNum)
             return this;
 
         if(isLeaf())
             return 0; //NULL
-
-       currentNode= tree->sons.pick(i).value; // do pogodzenia +++
-        if(found=preorder(parentNum,currentNode))
-            return 0;
-
+        for (i;i<tree->size;i++) // od 0 do ilosci synów węzła
+        {
+            currentNode = tree->sons.pick(i).value; // do pogodzenia +++
+            if (found = preorder(parentNum, currentNode))
+                return found;
+        }
 
 
     }
@@ -60,14 +61,14 @@ public:
     bool create (int parentId, type value, int newId)
     {
 
-        TreeStructure<type> *newTree;
-        TreeStructure<type> *found;
+        TreeNode<type> *newTree;
+        TreeNode<type> *found;
 
 
         if(parentId==id)
         {
-            sons.insert(new TreeStructure <type>, sons.size); // tworzymy komórkę listy ze wskaźnikiem << ważna linijka
-            // sons.pick(sons.size).value = new TreeStructure <type> ;
+            sons.insert(new TreeNode <type>, sons.size); // tworzymy komórkę listy ze wskaźnikiem << ważna linijka
+            // sons.pick(sons.size).value = new TreeNode <type> ;
 
             newTree=sons.pick(sons.size).value;
 
@@ -102,7 +103,7 @@ public:
 
     bool remove(int parentId)
     {
-        TreeStructure <type> *rmThis;
+        TreeNode <type> *rmThis;
         if(parentId==id && size==0)
         {
 
@@ -139,13 +140,36 @@ public:
 
     }
 
-
-
-
-
-    /*TreeStructure <type>* find (int parentNum)
+    TreeNode <type>* show (int parentNum,TreeNode <type> *tree)
     {
-        TreeStructure <type> *tmp=this;
+        TreeNode <type> *found=0;
+        TreeNode <type> *currentNode=this;
+        int i= 0; currentNode->sons.size;
+
+        if(currentNode->id=parentNum)
+        {
+            cout << currentNode->value << endl;
+            return this;
+        }
+        if(isLeaf())
+        {
+            cout << currentNode->value << endl;
+            return 0; //NULL
+        }
+
+        currentNode= tree->sons.pick(i).value; // do pogodzenia +++
+        if(found=show(parentNum,currentNode))
+            return found;
+
+
+
+    }
+
+
+
+    /*TreeNode <type>* find (int parentNum)
+    {
+        TreeNode <type> *tmp=this;
 
         while(tmp->id!=parentNum)
         {

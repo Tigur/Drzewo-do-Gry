@@ -5,14 +5,14 @@
 #ifndef TREE_TREE_H
 #define TREE_TREE_H
 #include <iostream>
-#include "TreeStructure.h"
+#include "TreeNode.h"
 
 using namespace std;
 
 template <class type>
 class Tree
 {
-    TreeStructure<type> root;
+    TreeNode<type> root;
     int size=0;
 
 public:
@@ -27,6 +27,23 @@ public:
        }
 
         return false;
+    }
+
+
+    bool remove (int parentId)
+    {
+        if (root.remove(parentId))
+        {
+            size --;
+            return true;
+        }
+
+        return false;
+    }
+
+    void show ()
+    {
+        root.show()
     }
 
 };

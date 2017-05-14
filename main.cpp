@@ -1,6 +1,6 @@
 #include <iostream>
 #include "List.h"
-#include "TreeStructure.h"
+#include "TreeNode.h"
 #include "Tree.h"
 
 using namespace std;
@@ -27,8 +27,10 @@ int main()
     L.show();
      */
     Tree <int> T;
-    T.create(1,12);
-
+    T.create(0,12);
+    T.create(0,11);
+    T.create(1,10);
+    //T.remove(1);
 
 
 
