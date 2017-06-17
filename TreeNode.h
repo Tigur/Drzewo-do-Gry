@@ -81,17 +81,17 @@ public:
             newTree->value=value;
             size ++ ;
             /*
-            cout << " To jest wartosc w utworzonym : " << endl;
+            cout << " \nTreeNode l.84\nTo jest wartosc w utworzonym : " << endl;
             cout << newTree->value<< endl;
 */
 
-            cout << " To jest wartość wielkosci w utworzonym :" << endl;
+            cout << "\n TreeNode l.88\nTo jest wartość wielkosci w utworzonym :" << endl;
             cout << newTree->size << endl;
             cout << size << endl;
 
 
 /*
-            cout << "To jest tata : " << endl;
+            cout << "\nTreeNode l.94\nTo jest tata : " << endl;
             cout << newTree->father->id << endl;
 
              */
@@ -109,7 +109,7 @@ public:
             found->create(parentId, value, newId);
 
 
-            cout << "wielkość znalezionego : " << endl;
+            cout << "TreeNode l.112\n wielkość znalezionego : " << endl;
             cout << found->getSize()<< endl;
 
 
@@ -159,6 +159,13 @@ public:
        if( rmThis=preorder(parentId))
        {
            rmThis->remove(parentId);
+
+           cout << "\n(TreeNode l.163)\n wielkość znalezionego RM : " << endl;
+           cout << rmThis->getSize()<< endl;
+
+           cout << "id : "<< endl;
+           cout << rmThis->getId()<< endl;
+           cout << "\n"<< endl;
            return true;
        }
         else
