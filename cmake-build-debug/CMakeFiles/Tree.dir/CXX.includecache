@@ -19,8 +19,6 @@ TreeNode.h
 /home/resolution/CLionProjects/Tree/TreeNode.h
 iostream
 -
-treeNode.h
-/home/resolution/CLionProjects/Tree/treeNode.h
 
 /home/resolution/CLionProjects/Tree/cell.h
 
@@ -33,10 +31,4 @@ TreeNode.h
 /home/resolution/CLionProjects/Tree/TreeNode.h
 Tree.h
 /home/resolution/CLionProjects/Tree/Tree.h
-
-/home/resolution/CLionProjects/Tree/treeNode.h
-iostream
--
-List.h
-/home/resolution/CLionProjects/Tree/List.h
 
