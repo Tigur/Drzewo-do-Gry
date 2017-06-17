@@ -13,10 +13,10 @@ cell.h
 /home/resolution/CLionProjects/Tree/Tree.h
 iostream
 -
-TreeStructure.h
-/home/resolution/CLionProjects/Tree/TreeStructure.h
+TreeNode.h
+/home/resolution/CLionProjects/Tree/TreeNode.h
 
-/home/resolution/CLionProjects/Tree/TreeStructure.h
+/home/resolution/CLionProjects/Tree/TreeNode.h
 iostream
 -
 treeNode.h
@@ -29,8 +29,8 @@ iostream
 -
 List.h
 /home/resolution/CLionProjects/Tree/List.h
-TreeStructure.h
-/home/resolution/CLionProjects/Tree/TreeStructure.h
+TreeNode.h
+/home/resolution/CLionProjects/Tree/TreeNode.h
 Tree.h
 /home/resolution/CLionProjects/Tree/Tree.h
 

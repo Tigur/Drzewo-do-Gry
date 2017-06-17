@@ -13,15 +13,15 @@ template <class type>
 class Tree
 {
     TreeNode<type> root;
-    int size=0;
+    int sizeT=0;
 
 public:
     bool create (int parentNum, type value)
     {
-        int newid=size;
+        int newid=sizeT;
        if( root.create(parentNum, value, newid))
        {
-           size++;
+           sizeT++;
 
            return true;
        }
@@ -34,7 +34,7 @@ public:
     {
         if (root.remove(parentId))
         {
-            size --;
+            sizeT --;
             return true;
         }
 
@@ -43,7 +43,21 @@ public:
 
     void show ()
     {
-        root.show()
+        root.show();
+    }
+
+
+
+
+    // funkcje dostępu dev
+
+    TreeNode<type> getRoot()
+    {
+        return root;
+    }
+    int getSize()
+    {
+        return sizeT;
     }
 
 };

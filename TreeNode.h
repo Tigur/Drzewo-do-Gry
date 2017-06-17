@@ -17,7 +17,7 @@ class TreeNode
 
     List <TreeNode> sons;
     TreeNode *father;
-    type value;
+    type value=0;
     int id=0;
 
 
@@ -35,21 +35,21 @@ class TreeNode
             return false;
     }
 
-    TreeNode <type>* preorder (int parentNum,TreeNode <type> *tree)
+    TreeNode <type>* preorder (int parentNum)
     {
         TreeNode <type> *found=0;
         TreeNode <type> *currentNode=this;
-        int i= 0; tree->sons.size;
+        int i= 1;
 
         if(currentNode->id=parentNum)
             return this;
 
         if(isLeaf())
             return 0; //NULL
-        for (i;i<tree->size;i++) // od 0 do ilosci synów węzła
+        for (i;i<currentNode->size;i++) // od 0 do ilosci synów węzła
         {
-            currentNode = tree->sons.pick(i).value; // do pogodzenia +++
-            if (found = preorder(parentNum, currentNode))
+            TreeNode <type> *nextNode = currentNode->sons.pick(i).value; // do pogodzenia +++
+            if (found = nextNode->preorder(parentNum))
                 return found;
         }
 
@@ -68,16 +68,33 @@ public:
         if(parentId==id)
         {
             sons.insert(new TreeNode <type>, sons.size); // tworzymy komórkę listy ze wskaźnikiem << ważna linijka
-            // sons.pick(sons.size).value = new TreeNode <type> ;
+            // sons.pick(sons.sizeT).value = new TreeNode <type> ;
 
             newTree=sons.pick(sons.size).value;
 
 
+
+
+
             newTree->id=newId;
             newTree->father=this;
+            newTree->value=value;
             size ++ ;
+            /*
+            cout << " To jest wartosc w utworzonym : " << endl;
+            cout << newTree->value<< endl;
+*/
+
+            cout << " To jest wartość wielkosci w utworzonym :" << endl;
+            cout << newTree->size << endl;
+            cout << size << endl;
 
 
+/*
+            cout << "To jest tata : " << endl;
+            cout << newTree->father->id << endl;
+
+             */
             return true;
         }
 
@@ -87,9 +104,15 @@ public:
             return false;
         }
 
-        if(found=preorder(parentId,this))
+        if(found=this->preorder(parentId))
         {
             found->create(parentId, value, newId);
+
+
+            cout << "wielkość znalezionego : " << endl;
+            cout << found->getSize()<< endl;
+
+
             return true;
         }
         else
@@ -104,7 +127,7 @@ public:
     bool remove(int parentId)
     {
         TreeNode <type> *rmThis;
-        if(parentId==id && size==0)
+        if(parentId==id && sons.size==0)
         {
 
             for(int i=1;i<=size;i++)
@@ -121,13 +144,19 @@ public:
             return true;
         }
 
+        if(parentId==id)
+        {
+            cout << "This is not a leaf, You can't just delete it ! " << endl;
+            return false;
+        }
+
         if(size<parentId)
         {
             cerr<< "There is no such a place in this tree !" << endl;
             return false;
         }
 
-       if( rmThis=preorder(parentId,this))
+       if( rmThis=preorder(parentId))
        {
            rmThis->remove(parentId);
            return true;
@@ -140,26 +169,32 @@ public:
 
     }
 
-    TreeNode <type>* show (int parentNum,TreeNode <type> *tree)
+    TreeNode <type>* show (int parentNum=100000000)
     {
         TreeNode <type> *found=0;
         TreeNode <type> *currentNode=this;
-        int i= 0; currentNode->sons.size;
+        int i= 1; currentNode->sons.size;
 
-        if(currentNode->id=parentNum)
+        cout << currentNode->id << endl;
+
+
+        if(currentNode->id==parentNum)
         {
-            cout << currentNode->value << endl;
+
             return this;
         }
         if(isLeaf())
         {
-            cout << currentNode->value << endl;
+
             return 0; //NULL
         }
 
-        currentNode= tree->sons.pick(i).value; // do pogodzenia +++
-        if(found=show(parentNum,currentNode))
-            return found;
+        for (i;i<currentNode->size;i++) // od 0 do ilosci synów węzła
+        {
+            TreeNode <type> *nextNode = currentNode->sons.pick(i).value; // do pogodzenia +++
+            if (found = nextNode->show(parentNum))
+                return found;
+        }
 
 
 
@@ -177,6 +212,30 @@ public:
         }
     }
     */
+
+
+
+
+
+
+
+
+
+
+
+
+    int getSize()
+    {
+        return size;
+    }
+    List <TreeNode> getSons()
+    {
+        return sons;
+    }
+    int getId()
+    {
+        return id;
+    }
 };
 
 

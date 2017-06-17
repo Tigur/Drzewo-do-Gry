@@ -3,7 +3,7 @@
 
 CMakeFiles/Tree.dir/main.cpp.o: ../List.h
 CMakeFiles/Tree.dir/main.cpp.o: ../Tree.h
-CMakeFiles/Tree.dir/main.cpp.o: ../TreeStructure.h
+CMakeFiles/Tree.dir/main.cpp.o: ../TreeNode.h
 CMakeFiles/Tree.dir/main.cpp.o: ../cell.h
 CMakeFiles/Tree.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Tree.dir/main.cpp.o: ../treeNode.h
