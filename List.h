@@ -250,7 +250,7 @@ public:
         }
     }
 
-    cell<type> pick(int position)
+    cell<type>* pick(int position)
     {
         cell <type> *ptr1= &head;
 
@@ -258,7 +258,7 @@ public:
         {
             cerr<< "There is no " << position << ". element in the List !" << endl;
 
-            return *ptr1 ;
+            return ptr1 ;
         }
 
         for (int i=1;i<=position;++i)
@@ -267,7 +267,7 @@ public:
         }
 
 
-        return *ptr1;
+        return ptr1;
     }
 
 

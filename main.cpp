@@ -40,8 +40,8 @@ int main()
     T.show();
 
     cout << "\nsprawdzanie poszczególnych komórek " << endl ;
-    cout << T.getRoot().getSons().pick(6).value->getSize() << endl;
-    cout << T.getRoot().getSons().pick(8).value->getId() << endl;
+    cout << T.getRoot().getSons().pick(6)->value->getSize() << endl;
+    cout << T.getRoot().getSons().pick(8)->value->getId() << endl;
 
 
 }

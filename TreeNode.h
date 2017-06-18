@@ -48,7 +48,7 @@ class TreeNode
             return 0; //NULL
         for (i;i<currentNode->size;i++) // od 0 do ilosci synów węzła
         {
-            TreeNode <type> *nextNode = currentNode->sons.pick(i).value; // do pogodzenia +++
+            TreeNode <type> *nextNode = currentNode->sons.pick(i)->value; // do pogodzenia +++
             if (found = nextNode->preorder(parentNum))
                 return found;
         }
@@ -70,7 +70,7 @@ public:
             sons.insert(new TreeNode <type>, sons.size); // tworzymy komórkę listy ze wskaźnikiem << ważna linijka
             // sons.pick(sons.sizeT).value = new TreeNode <type> ;
 
-            newTree=sons.pick(sons.size).value;
+            newTree=(sons.pick(sons.size)->value);
 
 
 
@@ -80,10 +80,10 @@ public:
             newTree->father=this;
             newTree->value=value;
             size ++ ;
-            /*
-            cout << " \nTreeNode l.84\nTo jest wartosc w utworzonym : " << endl;
+
+/*            cout << " \nTreeNode l.84\nTo jest wartosc w utworzonym : " << endl;
             cout << newTree->value<< endl;
-*/
+
 
             cout << "\n TreeNode l.88\nTo jest wartość wielkosci w utworzonym :" << endl;
             cout << newTree->size << endl;
@@ -109,7 +109,7 @@ public:
             found->create(parentId, value, newId);
 
 
-            cout << "TreeNode l.112\n wielkość znalezionego : " << endl;
+            cout << "\nTreeNode l.112\n wielkość znalezionego : " << endl;
             cout << found->getSize()<< endl;
 
 
@@ -132,9 +132,9 @@ public:
 
             for(int i=1;i<=size;i++)
             {
-                if (this->father->sons.pick(i).value == this)
+                if (this->father->sons.pick(i)->value == this)
                 {
-                    rmThis = this->father->sons.pick(i).value;
+                    rmThis = this->father->sons.pick(i)->value;
                     this->father->sons.del(i);
                 }
             }
@@ -198,7 +198,7 @@ public:
 
         for (i;i<currentNode->size;i++) // od 0 do ilosci synów węzła
         {
-            TreeNode <type> *nextNode = currentNode->sons.pick(i).value; // do pogodzenia +++
+            TreeNode <type> *nextNode = currentNode->sons.pick(i)->value; // do pogodzenia +++
             if (found = nextNode->show(parentNum))
                 return found;
         }
